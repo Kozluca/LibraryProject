@@ -1,0 +1,17 @@
+﻿@model Book
+@{
+    ViewBag.Title = "Kitap Silme";
+}
+<h2>Silme Onay</h2>
+
+<form method="post" asp-action="Delete" asp-route-id="@Model.Id">                       @* Silme işlemi için Id Gönderdik*@
+    <input type="hidden" asp-for="Id" />
+
+                                                                                        @* Silme işlemi için tanımlanmış id yi aldık *@
+
+    <p>@Model.Title ADLI KİTABI SİLMEK İSTEDİĞİNİZE EMİN MİSİNİZ ?</p>                  @* Onay Mesajı Gönderdik soru sorduk *@
+
+    <button class="btn btn-primary" type="submit">SİL</button>
+    <a class="btn btn-secondary" asp-action="List">Vazgeç</a>                           @* Silme butonu oluşturduk *@
+                                                                                        @* Vazgeç butonu oluşturduk *@
+</form>

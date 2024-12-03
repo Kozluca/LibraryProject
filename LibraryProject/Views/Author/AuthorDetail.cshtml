@@ -1,0 +1,58 @@
+﻿@model AuthorViewModel
+@{
+    ViewBag.Title = "YAZAR DETAY";
+}
+@* seçtiiğimiz yazazrın bir Detail Sayfasını oluşturduk *@
+<h1>Yazar Detayları</h1>  @* H1 ile Başlık yazdık   h1-h2-h3-h4 yazı boytunu belirler *@
+
+
+<form method="post">
+    <input type="hidden" asp-for="Id" />             @* Detaylarına gitmek istediğimiz yazarın Id sini aldık *@
+
+    <table>                                             @* Tablo oluşturduk *@
+                                        
+        <thead>                                         @* Tablonun Başlık kısmı *@
+                                 
+            <tr>
+                <th>Id</th>                             @* th sütunları td satırları temsil eder *@
+                <th>İSİM</th>
+                <th>SOY İSİM</th>
+                <th>DOĞUM TARİHİ</th>
+            </tr>
+        </thead>
+
+        <tbody>                                          @* Tablonun orta kısmı *@
+           
+            <tr>
+                <td>@Model.Id</td>
+                <td>@Model.Name</td>
+                <td>@Model.SurName</td>
+                <td>@Model.DateOfBorn</td>
+
+            </tr>
+
+
+        </tbody>
+    </table>
+</form>
+<br />
+<a asp-controller="Author" asp-action="List" class="btn btn-primary">Geri Dön</a>   @* buton oluşturup gitmek istediğimiz yere link verdik *@
+<style>
+    table {
+        border-collapse: collapse;
+        background-color: #fff;
+    }
+
+        table tr,
+        table td,
+        table th {
+            border: 1px solid #bbb;
+            padding: 10px 20px;
+        }
+
+        table th {
+            background-color: #d1084b;
+            color: #fff;
+            font-weight: 600;
+        }
+</style>

@@ -1,0 +1,41 @@
+﻿@model AuthorViewModel
+@{
+    ViewBag.Title = "YAZAR EKLE";
+}
+<h2>YAZAR EKLE</h2>
+
+
+<form method="post">        @* Oluşturma/Ekleme Formu oluşturduk *@
+    
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>           @* Name için label tanımladık *@
+        <input asp-for="Name" type="text" class="form-control" />   @* Name için girdi değeri tanımladık *@
+        <div class="form-text text-danger">                         @* text sınıfından hata mesajı tanımladık *@
+             <span asp-validation-for="Name"></span>
+        </div>
+
+        <div class="mb-3">
+
+            <label asp-for="SurName">Yazar SoyAdı</label>                       @* SurName için label tanımladık *@
+            <input asp-for="SurName" type="text" class="form-control" />        @* SurName için girdi değeri tanımladık *@
+            <div class="form-text text-danger">                                 @* SurName için hata mesajı veren class tanımladık *@
+                <span asp-validation-for="SurName"></span>
+                              
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="DateOfBorn" class="form-label"></label>             @* DateOfBorn için label tanımladık *@
+                <input asp-for="DateOfBorn" class="form-control">                   @* DateOfBorn için girdi değeri tanımladık *@
+                <div class="form-text text-danger">                                 @* DateOfBorn için hata mesajı veren class tanımladık *@
+                     <span asp-validation-for="DateOfBorn"></span>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Kaydet</button>           @* kaydet butonu oluşturduk "submit etmek için" *@
+</form>
+<br />
+<br />
+<form asp-action="Index" method="post">
+    <button type="submit" class="btn btn-primary">Geri Dön</button>                @* Geri Dön butonu oluşturduk *@
+</form>
+

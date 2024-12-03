@@ -1,0 +1,77 @@
+﻿@model DetailsViewModel
+@{
+    ViewBag.Title = "Kitap Detayları";
+}
+<h2>Kitap Detayları</h2>
+
+<table>                                                           @* Tablo oluşturduk *@                                     
+    <thead>                                                       @* Tablonun Başlık kısmı *@
+        <tr>                                                                   
+            <th>Kitap Id</th>
+            <th>Kitap Adı</th>                                                
+            <th>Kitap Türü</th>
+            <th>Kitap Kopya Sayısı</th>
+            <th>Kitap Basım Tarihi</th>                          @* th sütunları td satırları temsil eder *@
+            <th>Kitap SeriNo</th>
+            <th>Kitap Yazar Id</th>
+            <th>Yazar Adı</th>
+            <th>Yazar SoyAdı</th>
+           
+        </tr>
+    </thead>                                                                  
+    <tbody>                                                       @* Tablonun orta kısmı *@
+        <tr>
+            <td>@Model.Id</td>
+            <td>@Model.Title</td>
+            <td>@Model.Genre</td>
+            <td>@Model.CopiesAvailable</td>
+            <td>@Model.PublishDate</td>                    @* th sütunları td satırları temsil eder *@
+            <td>@Model.ISBN</td>
+            <td>@Model.AuthorId</td>
+            <td>@Model.AuthorName</td>
+            <td>@Model.AuthorSurName</td>
+
+        </tr>
+    </tbody>
+</table>
+<a asp-controller="Book" asp-action="List" class="btn btn-primary"> Geri Dön</a>        @* buton oluşturup gitmek istediğimiz yere link verdik *@
+<style>
+    
+    table
+    {
+        border-collapse: collapse;
+        background-color: #fff;
+    }
+
+        table tr,
+        table td,
+        table th {
+            border: 1px solid #bbb;
+            padding: 10px 20px;
+        }
+
+        table th {
+            background-color: #d1084b;
+            color: #fff;
+            font-weight: 600;
+        }
+</style>
+<style>
+    table {
+        border-collapse: collapse;
+        background-color: #fff;
+    }
+
+        table tr,
+        table td,
+        table th {
+            border: 1px solid #bbb;
+            padding: 10px 20px;
+        }
+
+        table th {
+            background-color: #d1084b;
+            color: #fff;
+            font-weight: 600;
+        }
+</style>

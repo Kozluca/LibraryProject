@@ -1,0 +1,60 @@
+﻿@model BookViewModel
+@{
+    ViewBag.Title = "Kitap Ekle";
+}
+
+<h2>Kitap Ekle</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label">Kitap ADI</label>                  @* Title için label tanımladık *@
+        <input asp-for="Title" class="form-control" type="text" />                   @* Title için girdi değeri tanımladık *@
+        <div class="form-text text-danger">                                          @* text sınıfından hata mesajı tanımladık *@
+            <span asp-validation-for="Title"></span>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Genre" class="form-label">Kitap türü</label>                  @* Genre için label tanımladık *@
+        <input asp-for="Genre" class="form-control" type="text" />                    @* Genre için girdi değeri tanımladık *@
+        <div class="form-text text-danger">                                           @* text sınıfından hata mesajı tanımladık *@
+            <span asp-validation-for="Genre"> </span>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="PublishDate" class="form-label">basım tarihi</label>             @* PublishDate için label tanımladık *@
+        <input asp-for="PublishDate" class="form-control" />                             @* PublishDate için girdi değeri tanımladık *@
+        <div class="form-text text-danger">                                              @* text sınıfından hata mesajı tanımladık *@
+            <span asp-validation-for="PublishDate"></span>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="AuthorId" class="form-label"></label>                                @* AuthorId için label tanımladık *@
+        <select asp-for="AuthorId" asp-items="ViewBag.AuthorNames" class="form-select">      @* AuthorId için girdi değeri tanımladık *@
+            <option value="">Seçiniz</option>                                                @* text sınıfından hata mesajı tanımladık *@
+        </select>
+        <div class="form-text text-danger">
+            <span asp-validation-for="AuthorId"> </span>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ISBN" class="form-label">SERİ NO</label>                              @* ISBN için label tanımladık *@
+        <input asp-for="ISBN" class="form-control" type="text" />                             @* ISBN için girdi değeri tanımladık *@
+        <div class="form-text text-danger">                                                   @* text sınıfından hata mesajı tanımladık *@
+            <span asp-validation-for="ISBN">  </span>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label asp-for="CopiesAvailable" class="form-label">KOPYA SAYISI</label>              @* "CopiesAvailable için label tanımladık *@
+        <input asp-for="CopiesAvailable" class="form-control" type="int" />                   @* "CopiesAvailable için girdi değeri tanımladık *@
+        <div class="form-text text-danger">                                                   @* text sınıfından hata mesajı tanımladık *@
+            <span asp-validation-for="CopiesAvailable"> </span>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+
+</form>

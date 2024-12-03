@@ -1,0 +1,79 @@
+﻿@using LibraryProject.Models
+@model List<Author>
+@{
+    ViewBag.Title = "Yazar Lisesi";
+}                                                                        @* Bütün yazarların bulunduğu bir Liste Sayfası oluşturduk *@
+<h2>Yazarlar</h2>                                                        @* H2 ile Başlık yazdık   h1-h2-h3-h4 yazı boytunu belirler *@
+
+<hr />
+<div class="alert alert-success" role="alert">                           @* Listedeki toplam yazar sayısını yazdırmak için mesaj veren bir class oluşturduk *@
+    
+    <strong> @ViewBag.AuthorCount </strong> adet Yazar listelendi.       @* Listedeki toplam yazar sayısını yazdırdık *@
+</div>
+@if (TempData["Mesaj"] != null)                 // Tanımladığımız mesajı yazdırdık
+{
+    <div class="alert alert-success">
+        @TempData["Mesaj"]
+
+    </div>
+}
+
+
+<hr />
+<table>                                                 @* Tablo oluşturduk *@
+   
+    <thead>                                             @* Tablonun Başlık kısmı *@
+        <tr>
+
+            <th>İSİM</th>                               @* th sütunları td satırları temsil eder *@
+            <th>SOY İSİM</th>
+
+        </tr>
+    </thead>
+
+    <tbody>                                              @* Tablonun orta kısmı *@
+        
+        @foreach (var author in Model)                   @* Foreach Döngüsü ile tabloyu istediğimiz bilgiler ile doldurttuk*@
+        {
+            <tr>
+
+                <td>@author.Name</td>
+                <td>@author.SurName</td>
+
+                <td>
+                    <a asp-action="AuthorDetail" class="btn btn-primary" asp-route-id="@author.Id">Detaylar</a> @* buton oluşturup gitmek istediğimiz yere link verdik *@
+                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@author.Id">Düzenle</a>          @* buton oluşturup gitmek istediğimiz yere link verdik *@
+                    <a asp-action="DeleteConfirm" class="btn btn-danger" asp-route-id="@author.Id">Sil</a>      @* buton oluşturup gitmek istediğimiz yere link verdik *@
+
+
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+<a asp-controller="Author" asp-action="List" class="btn btn-primary">Geri Dön</a>      @* buton oluşturup gitmek istediğimiz yere link verdik *@
+
+<style>
+    table {
+        border-collapse: collapse;
+        background-color: #fff;
+    }
+
+        table tr,
+        table td,
+        table th {
+            border: 1px solid #bbb;
+            padding: 10px 20px;
+        }
+
+        table th {
+            background-color: #d1084b;
+            color: #fff;
+            font-weight: 600;
+        }
+</style>
+
+

@@ -1,0 +1,44 @@
+﻿@model Book
+@{
+    ViewBag.Title = "Kitap Düzenle";
+}
+
+<h2>Kitap Düzenle</h2>
+
+<form method="post">
+
+
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label">Kitap Adı</label>
+        <input asp-for="Title" class="form-control" type="text" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Genre" class="form-label">Kitap Türü</label>
+        <input asp-for="Genre" class="form-control" type="text" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="AuthorId" class="form-label">Yazar Id</label>
+        <input asp-for="AuthorId" class="form-control" type="text" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="CopiesAvailable" class="form-label">Kitap Kopya Sayısı</label>
+        <input asp-for="CopiesAvailable" class="form-control" type="text" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ISBN" class="form-label">Kitap SeriNo</label>
+        <input asp-for="ISBN" class="form-control" type="text" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="PublishDate" class="form-label">Kitap Yayın Tarihi</label>
+        <input asp-for="PublishDate" class="form-control" />
+    </div>
+
+    <button class="btn btn-primary" type="submit">Kaydet</button>
+
+</form>
+<a asp-controller="Book" asp-action="List" class="btn btn-primary">Geri Dön</a>

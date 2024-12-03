@@ -1,0 +1,63 @@
+﻿@model List<Book>
+@{
+    ViewBag.Title = "Kitap Listesi";
+}                                                                                    @* Bütün yazarların bulunduğu bir Liste Sayfası oluşturduk *@
+<h2>Kitap Listesi</h2>                                                               @* H2 ile Başlık yazdık   h1-h2-h3-h4 yazı boytunu belirler *@
+
+<div class="alert alert-success" role="alert">
+    <strong> @ViewBag.BookCount </strong> adet Yazar listelendi.       @*ViewBag.BookCount ile listedeki yazar sayısını yazdırdık*@
+</div>
+
+@if (TempData["Mesaj"] != null)                 // Tanımladığımız mesajı yazdırdık 
+{
+    <div class="alert alert-success">
+        @TempData["Mesaj"]
+
+    </div>
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>Kitap Adı</th>
+            <th>Kitap Türü</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Title</td>
+                <td>@book.Genre</td>
+                <td>
+                    <a asp-action="DeleteConfirm" asp-route-id="@book.Id" asp-controller="Book" class="btn btn-danger">Sil</a>   @* buton oluşturup gitmek istediğimiz yere link verdik *@
+                    <a asp-controller="Book" asp-action="Edit" asp-route-id="@book.Id" class="btn btn-warning">Düzenle</a>       @* buton oluşturup gitmek istediğimiz yere link verdik *@
+                    <a asp-action="Details" asp-controller="Book" asp-route-id="@book.Id" class="btn btn-primary">Detaylar</a>   @* buton oluşturup gitmek istediğimiz yere link verdik *@
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Book" asp-action="Create" class="btn btn-primary">Kitap Ekle  </a>           @* buton oluşturup gitmek istediğimiz yere link verdik *@
+<a asp-controller="Book" asp-action="Index" class="btn btn-primary"> Geri Dön</a>               @* buton oluşturup gitmek istediğimiz yere link verdik *@
+<style>                                                                                       
+    table {
+        border-collapse: collapse;
+        background-color: #fff;
+    }
+
+        table tr,
+        table td,
+        table th {
+            border: 1px solid #bbb;
+            padding: 10px 20px;
+        }
+
+        table th {
+            background-color: #d1084b;
+            color: #fff;
+            font-weight: 600;
+        }
+</style>

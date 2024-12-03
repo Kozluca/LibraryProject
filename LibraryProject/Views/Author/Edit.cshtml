@@ -1,0 +1,28 @@
+﻿@model AuthorViewModel
+@{
+    ViewBag.Title = "Yazar Düzenleme";
+}
+
+<h1>Yazarı Düzenle</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="Id" />                    @* Edit için Id Gönderdik*@
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>   @* Name için label tanımladık *@
+        <input asp-for="Name" class="form-control">         @* Name için girdi değeri tanımladık *@
+       
+    </div>
+    <div class="mb-3">
+        <label asp-for="SurName" class="form-label"></label>        @* SurName için label tanımladık *@
+        <input asp-for="SurName" class="form-control">              @* SurName için girdi değeri tanımladık *@
+    </div>
+   
+    <div class="mb-3">
+        <label asp-for="DateOfBorn" class="form-label"></label>      @* DateOfBorn için label tanımladık *@
+        <input asp-for="DateOfBorn" class="form-control">            @* DateOfBorn için girdi değeri tanımladık *@
+       
+    </div>
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>    @* işlemi onaylamak "submit" etmek için Kaydet Butonu Oluşturduk *@
+         
+</form>
