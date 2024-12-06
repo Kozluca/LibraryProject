@@ -15,11 +15,7 @@
         };
         public static List<AuthorName> AuthorNames = new List<AuthorName>()
         {
-            new AuthorName(){Id=11,Name="ÖMER SEYFETTİN"},
-            new AuthorName(){Id=12,Name="NAZIM HİKMET"},
-            new AuthorName(){Id=13,Name="AYŞE KULİN"},
-            new AuthorName(){Id=14,Name="OĞUZ ATAY"},
-            new AuthorName(){Id=15,Name="Mehmet Akif Ersoy"},
+           
             new AuthorName(){Id=1,Name="HAhmet HAYDAR"},
             new AuthorName(){Id=2,Name="Hasan SARI"},
             new AuthorName(){Id=3,Name="Ali KARANLIK"},
